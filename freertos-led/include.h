@@ -46,10 +46,12 @@
 #include "queue.h"
 #include "croutine.h"
 
+
 #include "stm32f10x.h"                  // Device header
 #include "stm32f10x_gpio.h"             // Keil::Device:StdPeriph Drivers:GPIO
 #include "stm32f10x_rcc.h"              // Keil::Device:StdPeriph Drivers:RCC
 
+#include "task_control.h"
 /*
 *********************************************************************************************************
 *                                           o¨º?¡§¨°?
@@ -65,7 +67,7 @@
 *********************************************************************************************************
 */
 
-//#include  <bsp.h>
+#include  <bsp.h>
 
 
 #endif

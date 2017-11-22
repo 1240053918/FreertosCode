@@ -1,8 +1,0 @@
---c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\source -I .\freertos\include -I .\freertos\portable\RVDS\ARM_CM3 -I ..\freertos-led
--I.\RTE\Device\STM32F103VE
--I.\RTE\_freertos_led
--IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include
--IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
--IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc
--D__UVISION_VERSION="523" -D_RTE_ -DSTM32F10X_HD
--o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d "main.c"

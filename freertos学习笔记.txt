@@ -1,0 +1,11 @@
+1.freertos拥有低功耗的Tickless模式
+2.configASSERT:检查传入的参数是否合理，vAssertCalled函数用于打印错误信息出现在哪个文件，哪一行；
+3.configCHECK_FOR_STACK_OVERFLOW设置堆栈溢出：使能后用户需要提供void vApplicationStackOverflowHook(TaskHandle_t xTask,char* pcTaskName)钩子函数，用于提示哪个任务堆栈溢出；
+   堆栈溢出严重会摧毁 xTask、pcTaskName这两个参数，这时可以查看变量pxCurrentTCB来确定哪个任务发生了堆栈溢出，堆栈溢出检测会增加上下文切换的开销，建议在调试时使用；
+   configCHECK_FOR_STACK_OVERFLOW=1，使用堆栈检测方法1：在任务切换时检测任务栈指针是否过界了，如果过界了，在任务切换的时候会触发栈溢出钩子函数。
+   configCHECK_FOR_STACK_OVERFLOW=2，任务创建的时候将任务栈所有数据初始化为0xa5，任务切换时进行任务栈检测的时候会检测末尾的16个字节是否都是0xa5，通过这种方式来检测任务栈是否溢出了。
+4.configUSE_IDLE_HOOK=1时，使用空闲任务钩子函数：void vApplicationIdleHook(void) ;
+5.configUSE_MALLOC_FAILED_HOOK=1时，使用内存分配失败钩子函数：void vApplicationMallocFailedHook(void);
+6.configUSE_PORT_OPTIMISED_TASK_SELECTION配置选择下个要运行的任务的方法，可提升任务切换效率。
+7.configUSE_PREFMPTION配置任务切换方式，为1时使用抢占式调度器，为0时使用协程
+8.configUSE_TRACE_FACILITY=1时，启用可视化跟踪调试

@@ -1,5 +1,9 @@
 --cpu Cortex-M3
 ".\objects\main.o"
+".\objects\task_control.o"
+".\objects\bsp.o"
+".\objects\bsp_led.o"
+".\objects\bsp_uart.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"
 ".\objects\list.o"
@@ -11,6 +15,7 @@
 ".\objects\misc.o"
 ".\objects\stm32f10x_gpio.o"
 ".\objects\stm32f10x_rcc.o"
+".\objects\stm32f10x_usart.o"
 ".\objects\startup_stm32f10x_hd.o"
 ".\objects\system_stm32f10x.o"
 --strict --scatter ".\Objects\Freertos_Led.sct"
