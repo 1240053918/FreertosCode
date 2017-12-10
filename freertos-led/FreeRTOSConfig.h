@@ -81,6 +81,13 @@
  *
  * See http://www.freertos.org/a00110.html.
  *----------------------------------------------------------*/
+/* Ensure stdint is only used by the compiler, and not the assembler. */
+#if defined(__ICCARM__) || defined(__CC_ARM) || defined(__GNUC__)
+ #include <stdint.h>
+ extern volatile uint32_t ulHighFrequencyTimerTicks;
+#endif
+
+
 #define configUSE_PREEMPTION		1
 #define configUSE_IDLE_HOOK			0
 #define configUSE_TICK_HOOK			0
@@ -90,10 +97,16 @@
 #define configMINIMAL_STACK_SIZE	( ( unsigned short ) 128 )
 #define configTOTAL_HEAP_SIZE		( ( size_t ) ( 17 * 1024 ) )
 #define configMAX_TASK_NAME_LEN		( 16 )
-#define configUSE_TRACE_FACILITY	0
+#define configUSE_TRACE_FACILITY	1
 #define configUSE_16_BIT_TICKS		0
 #define configIDLE_SHOULD_YIELD		1
 
+/* Run time and task stats gathering related definitions. */
+#define configGENERATE_RUN_TIME_STATS                1
+#define configUSE_STATS_FORMATTING_FUNCTIONS         1
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()     (ulHighFrequencyTimerTicks = 0ul)
+#define portGET_RUN_TIME_COUNTER_VALUE()             ulHighFrequencyTimerTicks
+//#define portALT_GET_RUN_TIME_COUNTER_VALUE           1
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		0
@@ -145,6 +158,15 @@ standard names. */
 #define xPortPendSVHandler PendSV_Handler
 #define xPortSysTickHandler SysTick_Handler
 
-
+#define INCLUDE_xResumeFromISR 1
+//#define INCLUDE_xEventGroupSetBitFromISR 1
+//#define configUSE_TIMERS 1
+//#define INCLUDE_xTimerPendFunctionCall 1
+//#define INCLUDE_xTimerPendFunctionCall    1
+/* Software timer definitions. */
+//#define configUSE_TIMERS				  1
+//#define configTIMER_TASK_PRIORITY		( 5 )
+//#define configTIMER_QUEUE_LENGTH		  20
+//#define configTIMER_TASK_STACK_DEPTH	( configMINIMAL_STACK_SIZE * 2 )
 #endif /* FREERTOS_CONFIG_H */
 

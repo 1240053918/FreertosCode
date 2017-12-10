@@ -14,3 +14,4 @@
 .\objects\tasks.o: .\freertos\include\list.h
 .\objects\tasks.o: .\freertos\include\timers.h
 .\objects\tasks.o: .\freertos\include\StackMacros.h
+.\objects\tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

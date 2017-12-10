@@ -5,5 +5,5 @@
 
 
 void AppTaskCreate (void);
-
+void AppObjCreate (void);
 #endif

@@ -45,11 +45,12 @@
 #include "task.h"
 #include "queue.h"
 #include "croutine.h"
-
+#include "event_groups.h"
 
 #include "stm32f10x.h"                  // Device header
 #include "stm32f10x_gpio.h"             // Keil::Device:StdPeriph Drivers:GPIO
 #include "stm32f10x_rcc.h"              // Keil::Device:StdPeriph Drivers:RCC
+#include "stm32f10x_tim.h"              // Keil::Device:StdPeriph Drivers:TIM
 
 #include "task_control.h"
 /*
@@ -57,7 +58,7 @@
 *                                           o¨º?¡§¨°?
 *********************************************************************************************************
 */
-
+#include "sst25vf016b.h"
 
 
 
@@ -68,7 +69,7 @@
 */
 
 #include  <bsp.h>
-
+extern void vSetupSysInfoTest(void);
 
 #endif
 
